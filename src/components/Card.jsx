@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { IoDocumentTextOutline } from "react-icons/io5";
 import { motion } from "motion/react";
 import { AiOutlineDelete } from "react-icons/ai";
@@ -12,7 +13,7 @@ const Card = ({ constraint }) => {
                         <IoDocumentTextOutline size={size} />
                         <AiOutlineDelete color="red" size={size} />
                   </div>
-                  <p className="leading-none text-zinc-300 text-sm  mt-3">In no time, the clock began to chime. A mime did climb and solved the crime. Slime and lime made the scene sublime. Pastime and bedtime marked a lifetime of prime rhyme.</p>
+                  <p className="leading-none text-zinc-300 text-sm  mt-3"> Work Smarter By Planning Not Blinded.</p>
                   <motion.div onClick={() => (cta === "Done" ? setCta("Completed") : setCta("Done"))} className={`absolute transition-all duration-75 cursor-pointer bottom-0 left-0 right-0 w-full text-center ${cta == "Done" ? "text-black bg-amber-200" : "text-white bg-green-500"} p-4`}>
                         {cta}
                   </motion.div>
