@@ -12,7 +12,19 @@ const Modal = (prop) => {
             };
       }, []);
 
-      return <section className="w-full h-full bg-gray-500 grid place-content-center">{prop.children}</section>;
+      return (
+            <section
+                  style={{
+                        backgroundImage: "radial-gradient(transparent 1px, var(--bg-back-primary) 1px)",
+                        backgroundSize: "3px 3px",
+                        backdropFilter: "brightness(1) blur(10px)",
+                        willChange: "filter, opacity, transform",
+                  }}
+                  className="w-full h-full fixed  inset-0 z-10 grid place-content-center"
+            >
+                  {prop.children}
+            </section>
+      );
 };
 
 export default Modal;

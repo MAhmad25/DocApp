@@ -1,6 +1,11 @@
 import Background from "./components/Background";
+import { ModalProvider } from "./context/ModalContext";
 const App = () => {
-      return <Background />;
+      return (
+            <ModalProvider>
+                  <Background />
+            </ModalProvider>
+      );
 };
 
 export default App;
