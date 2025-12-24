@@ -2,7 +2,7 @@ import { createClient } from "@supabase/supabase-js";
 import keys from "../utils/keys";
 class DocumentService {
       supabase;
-      table = "Articles";
+      table = "articles";
       constructor() {
             this.supabase = createClient(keys.supabase_base_url, keys.supabase_key);
       }

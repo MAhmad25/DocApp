@@ -3,6 +3,7 @@ import Card from "./Card";
 import CardContainer from "./Card_Container";
 import Foreground from "./Foreground";
 import Add from "./UI/Add";
+import SekeletonCard from "./UI/SekeletonCard";
 import Modal from "./UI/Modal";
 import NewDoc from "./UI/NewDoc";
-export { Background, Card, CardContainer, Foreground, Add, Modal, NewDoc };
+export { Background, Card, CardContainer, SekeletonCard, Foreground, Add, Modal, NewDoc };
