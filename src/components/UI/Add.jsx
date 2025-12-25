@@ -14,9 +14,7 @@ const AddButton = () => {
         pb-[10px]
         transition-all duration-100
         transform
-        active:pb-0 active:mb-[10px] active:translate-y-[10px]
-
-      "
+        active:pb-0 active:mb-[10px] active:translate-y-[10px]"
             >
                   <div className="bg-[var(--bg-back-primary)] border-4 border-white flex justify-center gap-2 items-center px-[8px] py-[3px]">
                         <div
