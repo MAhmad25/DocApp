@@ -11,6 +11,7 @@ const Foreground = () => {
                               <NewDoc />
                         </Modal>
                   )}
+
                   <section className="w-full  relative overflow-hidden p-3 flex justify-between gap-2 items-center h-full">
                         <div className="absolute z-20 bottom-5 left-1/2 -translate-x-1/2">
                               <Add />

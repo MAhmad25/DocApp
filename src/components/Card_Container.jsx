@@ -14,8 +14,8 @@ const Card_Container = () => {
             })();
       }, []);
       return (
-            <section ref={constraint} className="w-full h-full flex  overflow-y-scroll [&::-webkit-scrollbar]:hidden flex-wrap   gap-x-3 p-2 ">
-                  {!loading ? allRecords?.map((eachRecord) => <Card key={eachRecord.id} data={eachRecord} constraint={constraint} />) : Array.from({ length: 8 }).map((_, i) => <SekeletonCard key={i} />)}
+            <section ref={constraint} className="w-full h-full overflow-y-scroll [&::-webkit-scrollbar]:hidden grid grid-cols-2 grid-rows-3 lg:grid-cols-4 gap-x-3 p-2">
+                  {!loading ? allRecords.map((eachRecord) => <Card key={eachRecord.id} data={eachRecord} constraint={constraint} />) : Array.from({ length: 8 }).map((_, i) => <SekeletonCard key={i} />)}
             </section>
       );
 };

@@ -2,5 +2,6 @@
 @import "tailwindcss";
 @theme {
       --bg-back-primary: #14120b;
-      --txt-color: #201d1d;
+      --card: #453e2a;
+      --txt: #ece5db;
 }
