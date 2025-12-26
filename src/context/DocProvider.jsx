@@ -12,7 +12,10 @@ const DocProvider = (prop) => {
                   setLoading(false);
             })();
       }, []);
-      const states = { allDocs, setAllDocs, loading };
+      const insertDoc = (newDoc) => {
+            setAllDocs((prev) => [...prev, newDoc]);
+      };
+      const states = { allDocs, setAllDocs, loading, insertDoc };
       return <DocContext.Provider value={states}>{prop.children}</DocContext.Provider>;
 };
 

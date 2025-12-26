@@ -9,9 +9,9 @@ class DocumentService {
 
       async createDoc(record) {
             try {
-                  const { error } = await this.supabase.from(this.table).insert(record);
+                  const { data, error } = await this.supabase.from(this.table).insert(record).select();
                   if (error) return false;
-                  return true;
+                  return data;
             } catch (error) {
                   console.log("Unable to create an article: ", error.message);
             }
@@ -27,7 +27,7 @@ class DocumentService {
       }
       async updateDoc(articles_id, record) {
             try {
-                  const { error } = await this.supabase.from(this.table).update(record).eq("article_id", articles_id);
+                  const { error } = await this.supabase.from(this.table).update(record).eq("id", articles_id);
                   if (error) return false;
                   return true;
             } catch (error) {
@@ -36,7 +36,7 @@ class DocumentService {
       }
       async deleteDoc(article_id) {
             try {
-                  const response = await this.supabase.from(this.table).delete().eq("article_id", article_id);
+                  const response = await this.supabase.from(this.table).delete().eq("id", article_id);
                   if (response) return response;
             } catch (error) {
                   console.log("Unable to delete the documents: ", error.message);
@@ -44,7 +44,7 @@ class DocumentService {
       }
       async getSingleDoc(article_id) {
             try {
-                  const { data, error } = await this.supabase.from(this.table).select().eq("article_id", article_id);
+                  const { data, error } = await this.supabase.from(this.table).select().eq("id", article_id);
                   if (error) return false;
                   return data;
             } catch (error) {

@@ -2,10 +2,12 @@ import { useContext, useState } from "react";
 import docObj from "../../supabase/TableDataService";
 import toast from "react-hot-toast";
 import { ModalContext } from "../../context/ModalContext";
+import { DocContext } from "../../context/DocProvider";
 
 const NewDocForm = () => {
       const [pending, setPending] = useState(false);
       const { setModal } = useContext(ModalContext);
+      const { insertDoc } = useContext(DocContext);
       const handleSubmit = async (e) => {
             e.preventDefault();
             const form = e.currentTarget;
@@ -14,18 +16,19 @@ const NewDocForm = () => {
             const content = formData.get("content");
             setPending(true);
             const isArticleCreated = docObj.createDoc({ title, content });
-            await toast.promise(isArticleCreated, {
+            const newDoc = await toast.promise(isArticleCreated, {
                   loading: "Saving...",
                   success: <b>Note saved!</b>,
                   error: <b>Could not save.</b>,
             });
+            insertDoc(newDoc[0]);
             form.reset();
             setModal(false);
       };
       return (
             <form onSubmit={handleSubmit} className="bg-[var(--bg-black-primary)] border border-slate-200 grid grid-cols-6 gap-3 rounded-xl p-4 text-sm shadow-lg hover:shadow-xl transition-all duration-300">
                   <h1 className="text-center text-[var(--txt)]  text-2xl font-bold col-span-6 mb-2">Leave a Note</h1>
-                  <input name="title" type="text" required className="bg-transparent [&::-webkit-scrollbar]:hidden  h-32  border border-slate-200 col-span-6 row-span-1 resize-none outline-none rounded-lg p-3 duration-300  focus:border-slate-600 focus:ring-2 focus:ring-slate-200 focus:shadow-inner" placeholder="Title" />
+                  <input name="title" type="text" required className="bg-transparent [&::-webkit-scrollbar]:hidden border border-slate-200 col-span-6 row-span-1 resize-none  outline-none rounded-lg p-3 duration-300  focus:border-slate-600 focus:ring-2 focus:ring-slate-200 focus:shadow-inner" placeholder="Title" />
                   <textarea name="content" required className="bg-transparent [&::-webkit-scrollbar]:hidden text-[var(--txt)] h-32  border border-slate-200 col-span-6 row-span-2 resize-none outline-none rounded-lg p-3 duration-300  focus:border-slate-600 focus:ring-2 focus:ring-slate-200 focus:shadow-inner" placeholder="Type your content here..."></textarea>
 
                   <button disabled={pending} type="submit" className="bg-[var(--bg-back-primary)]  border border-slate-200 col-span-2 flex items-center justify-center gap-2 rounded-lg p-3 duration-300  active:scale-95 stroke-[var(--txt)] focus:bg-blue-400 hover:shadow-md group">

@@ -5,7 +5,7 @@ import { CardContainer, Add, Modal, NewDoc } from "./export";
 const Foreground = () => {
       const { openModal } = useContext(ModalContext);
       return (
-            <section className="absolute  flex justify-center items-center top-0 left-0 w-full h-screen">
+            <section className="absolute  flex justify-center items-center top-0 left-0 w-full h-dvh">
                   {openModal && (
                         <Modal>
                               <NewDoc />
