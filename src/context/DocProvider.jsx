@@ -7,9 +7,13 @@ const DocProvider = (prop) => {
       const [loading, setLoading] = useState(true);
       useEffect(() => {
             (async () => {
-                  const data = await docService.getAllDoc();
-                  setAllDocs(data);
-                  setLoading(false);
+                  try {
+                        const data = await docService.getAllDoc();
+                        setAllDocs(data);
+                        setLoading(false);
+                  } catch (error) {
+                        console.log("The Project have been paused:-", error.message);
+                  }
             })();
       }, []);
       const insertDoc = (newDoc) => {
