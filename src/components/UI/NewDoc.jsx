@@ -16,7 +16,6 @@ const NewDocForm = () => {
             const content = formData.get("content");
             setPending(true);
             const isArticleCreated = docObj.createDoc({ title, content });
-            console.log(isArticleCreated);
             const newDoc = await sileo.promise(isArticleCreated, {
                   loading: { title: "Saving..." },
                   success: { title: "Your note have been saved!", description: title },

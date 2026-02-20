@@ -19,7 +19,11 @@ const DocProvider = (prop) => {
       const insertDoc = (newDoc) => {
             setAllDocs((prev) => [...prev, newDoc]);
       };
-      const states = { allDocs, setAllDocs, loading, insertDoc };
+      const removeDoc = (id) => {
+            const remained = allDocs.filter((doc) => doc.id != id);
+            setAllDocs(remained);
+      };
+      const states = { allDocs, setAllDocs, loading, insertDoc, removeDoc };
       return <DocContext.Provider value={states}>{prop.children}</DocContext.Provider>;
 };
 

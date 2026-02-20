@@ -38,6 +38,7 @@ class DocumentService {
             try {
                   const response = await this.supabase.from(this.table).delete().eq("id", article_id);
                   if (response) return response;
+                  else false;
             } catch (error) {
                   console.log("Unable to delete the documents: ", error.message);
             }
