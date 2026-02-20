@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import docObj from "../../supabase/TableDataService";
-import toast from "react-hot-toast";
 import { ModalContext } from "../../context/ModalContext";
 import { DocContext } from "../../context/DocProvider";
+import { sileo } from "sileo";
 
 const NewDocForm = () => {
       const [pending, setPending] = useState(false);
@@ -16,10 +16,11 @@ const NewDocForm = () => {
             const content = formData.get("content");
             setPending(true);
             const isArticleCreated = docObj.createDoc({ title, content });
-            const newDoc = await toast.promise(isArticleCreated, {
-                  loading: "Saving...",
-                  success: <b>Note saved!</b>,
-                  error: <b>Could not save.</b>,
+            console.log(isArticleCreated);
+            const newDoc = await sileo.promise(isArticleCreated, {
+                  loading: { title: "Saving..." },
+                  success: { title: "Your note have been saved!", description: title },
+                  error: { title: "Failed" },
             });
             insertDoc(newDoc[0]);
             form.reset();
