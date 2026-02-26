@@ -14,8 +14,19 @@ const Background = () => {
                               },
                         }}
                   />
-                  <div className="text-9xl pointer-events-none font-[Roboto] tracking-tighter leading-none text-zinc-500">Doc.</div>
-                  <Foreground />
+                  <div className="min-h-screen w-full bg-black relative">
+                        <div
+                              className="absolute inset-0 z-0"
+                              style={{
+                                    backgroundImage: `
+          radial-gradient(circle at 50% 100%, rgba(20, 18, 11, 0.6) 0%, transparent 60%),
+          radial-gradient(circle at 50% 100%, rgba(20, 18, 11, 0.4) 0%, transparent 70%),
+          radial-gradient(circle at 50% 100%, rgba(255, 215, 0, 0.3) 0%, transparent 80%)
+        `,
+                              }}
+                        />
+                        <Foreground />
+                  </div>
             </section>
       );
 };
