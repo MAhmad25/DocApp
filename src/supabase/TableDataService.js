@@ -43,15 +43,6 @@ class DocumentService {
                   console.log("Unable to delete the documents: ", error.message);
             }
       }
-      async getSingleDoc(article_id) {
-            try {
-                  const { data, error } = await this.supabase.from(this.table).select().eq("id", article_id);
-                  if (error) return false;
-                  return data;
-            } catch (error) {
-                  console.log("Unable to delete the documents: ", error.message);
-            }
-      }
 }
 const doc = new DocumentService();
 export default doc;
