@@ -1,11 +1,13 @@
-import Background from "./components/Background";
+// import Background from "./components/Background";
+import Signup from "./components/UI/Signup";
 import { DocProvider } from "./context/DocProvider";
 import { ModalProvider } from "./context/ModalContext";
 const App = () => {
       return (
             <ModalProvider>
                   <DocProvider>
-                        <Background />
+                        {/* <Background /> */}
+                        <Signup />
                   </DocProvider>
             </ModalProvider>
       );
